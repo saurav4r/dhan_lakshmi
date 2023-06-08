@@ -7,11 +7,21 @@ export function Form(){
    const [comp,setComp]=useState("");
    const [dateout,setDateout]=useState("");
    const [datein,setDatein]=useState("");
+   const [errorinAmount, setErrorinAmount]= useState("");
 
-   
    function getFormData(e){
     console.log(amount,interst,comp,dateout,datein);
     e.preventDefault()
+   }
+
+   function onAmountChange(amount){
+        setAmount(amount);
+        if(amount<0){
+            setErrorinAmount("amount cant be less than zero");
+        }
+        else{
+            setErrorinAmount("");
+        }
    }
 
 
@@ -19,10 +29,11 @@ export function Form(){
    return(
     <div>
     <h2>Contact Form</h2>
+    <h6>{errorinAmount}</h6>
     <form onSubmit={getFormData}> 
       <label>
        Amount:
-      <input type="Integer" name="Amount" placeholder="  Amount" onChange={(e)=>setAmount(e.target.value)}/>
+      <input type="Integer" name="Amount" placeholder="  Amount" onChange={(e)=>onAmountChange(e.target.value)}/>
       </label>
       <br />
 
