@@ -1,28 +1,45 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Button from '@mui/material/Button';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import TextField from '@mui/material/TextField';
+import './Form.css';
 
 export function Form() {
-
-  const [amount, setAmount] = useState("");
-  const [interst, setInterst] = useState("");
-  const [comp, setComp] = useState("");
-  const [dateout, setDateout] = useState("");
-  const [datein, setDatein] = useState("");
+  // const [value, setValue] = useState(null);
+  var [amount, setAmount] = useState(0);
+  const [interst, setInterst] = useState(0);
+  const [comp, setComp] = useState(0);
+  const [dateout, setDateout] = useState(0);
+  const [datein, setDatein] = useState(0);
   const [errorinAmount, setErrorinAmount] = useState("");
   const [errorincomp, setErrorincomp] = useState("");
-  //  const [amountonyear,setAmountonyear]=useState("");
-  //  const [totalamount,setTotalamount]=useState("");
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
+  // const [amountonyear,setAmountonyear]=useState(0);
+  const [totalamount, setTotalamount] = useState(0);
+  const [year, setYear] = useState(0);
+  const [month, setMonth] = useState(0);
+  const [day, setDay] = useState(0);
+
+  useEffect(() => {
+    if (dateout && datein) {
+      calculateDateDifference(dateout, datein);
+    }
+  }, [dateout, datein])
+
+  // useEffect([
+
+  // ],amount)
+
 
   function getFormData(e) {
     e.preventDefault()
-    calculateDateDifference(dateout, datein);
+    // calculateDateDifference(dateout, datein);
 
-    console.log(amount, interst, comp, dateout, datein);
+    console.log(amount, interst, comp, dateout, datein, year, month, day);
 
-    
+
   }
 
   function onAmountChange(amount) {
@@ -58,81 +75,116 @@ export function Form() {
     setDatein(date);
   }
 
+  function calculation1(amount1, amount) {
 
-  //  calculateDateDifference(dateout, datein);
-  //  console.warn(`Years: ${dateDifference.years}, Months: ${dateDifference.months}, Days: ${dateDifference.days}`);
+    amount = amount + amount1;
+    return amount;
+
+  }
 
 
   function calculateDateDifference(date1, date2) {
-    // Ensure any date strings are converted to Date objects
+
     date1 = new Date(date1);
     date2 = new Date(date2);
 
-    // Calculate difference in total days
+
     let totalDaysDifference = Math.abs((date2 - date1) / (1000 * 60 * 60 * 24));
 
-    // Calculate years difference and remove the accounted days
+
     let years = Math.floor(totalDaysDifference / 365);
     totalDaysDifference -= years * 365;
 
-    // Calculate months and remove the accounted days
+
     let months = Math.floor(totalDaysDifference / 30);
     totalDaysDifference -= months * 30;
 
-    // Remaining days
+
     let days = Math.floor(totalDaysDifference);
-    setYear(years);
-    setMonth(months);
-    setDay(days);
-    console.log(year, month, day)
+    setYear(Number(years));
+    setMonth(Number(months));
+    setDay(Number(days));
     return { years, months, days };
 
   }
-  
-  // function calculation(amount,interst,comp,years,months,days){
-  //   let amount1=(amount*interst*years)/100;
-  //   setAmountonyear(amount+amount1);
-  //   let amount2=(amountonyear*interst*(months/12))/100;
-  //   let amount3=(amountonyear*interst*(days/365))/100;
-  //   setTotalamount(amountonyear+amount2+amount3);
 
+  function calculation() {
+    calculateDateDifference(dateout, datein);
+    let amount1 = 0;
+    for (let i = 1; i <= year; i++) {
+      let value = calculation1(amount, amount1)
+      amount = value;
+      amount1 = (amount * interst * 12) / 100;
+    }
+    // console.log(amount+amount1);
+    let amountonyear = amount + amount1;
+    let amount2 = (amountonyear * interst * (month / 12)) / 100;
+    let amount3 = (amountonyear * interst * (day / 30)) / 100;
+    setTotalamount(amountonyear + amount2 + amount3);
 
-  // }
-  // console.warn(totalamount);
+    // console.log(amountonyear+amount2+amount3)
+  }
+
 
 
   return (
-    <div>
-      <h2>Contact Form</h2>
+    
+    <div className="background">
       <h6>{errorinAmount}</h6>
       <h6>{errorincomp}</h6>
-      <form onSubmit={() => { }}>
-        <label>
-          Amount:
-          <input type="Integer" name="Amount" placeholder="  Amount" onChange={(e) => onAmountChange(e.target.value)} />
-        </label>
+      <form onSubmit={getFormData} className="Form" >
+
+        <h2>Compound interst calculator</h2>
+        <h6>{errorinAmount}</h6>
+
+        <TextField id="outlined-basic" label="amount" variant="outlined"  onChange={(e) => onAmountChange(Number(e.target.value))} />
+
+
+        <br />
         <br />
 
-        <label>
-          Interst:
-          <input type="Integer" name="Interst" placeholder="Interst" onChange={(e) => onchangeinterst(e.target.value)} />
-        </label>
+
+        <TextField id="outlined-basic" label="interst" variant="outlined" placeholder="Interst" onChange={(e) => onchangeinterst(Number(e.target.value))} />
+
+
+        <br />
         <br />
 
-        <label>
-          compound-interst:
-          <input type="integer" name="compound-interst" placeholder="compound-interst" onChange={(e) => onchangecomp(e.target.value)} />
-        </label>
+
+        <TextField id="outlined-basic" label="compound-interst:" variant="outlined" onChange={(e) => onchangecomp(Number(e.target.value))} />
+
+
+        <br />
         <br />
 
-        <label for="dateInput">date on which amount taken:</label>
-        <input type="date" id="dateInput" name="dateInput" onChange={(e) => onchangedateout(e.target.value)} /><br />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <DatePicker label="Date On Which Amount given:" onChange={(date) => onchangedateout(date)} />
+            </DemoContainer>
+          </LocalizationProvider>
+        </div>
 
-        <label for="dateInput">date on which amount given:</label>
-        <input type="date" id="dateInput" name="dateInput" onChange={(e) => onchangedatein(e.target.value)} /><br />
+        <br />
 
-        <button type="submit" onClick={(e) => { getFormData(e) }}>Submit</button>
+
+        <div style={{ display: 'flex', justifyContent: 'center'}}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <DatePicker label="Date On Which Amount given:" onChange={(date) => onchangedatein(date)} />
+            </DemoContainer>
+          </LocalizationProvider>
+        </div>
+
+        <br></br>
+        <br></br>
+        <Button variant="contained" onClick={() => { calculation() }} >Submit</Button>
+        
       </form>
+      <div className="h3">
+        <h3>your total Amount is {totalamount}</h3>
+      </div>
+
     </div>
   )
 }
