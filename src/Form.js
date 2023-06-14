@@ -128,7 +128,7 @@ export function Form() {
 
 
   return (
-    
+
     <div className="background">
       <h6>{errorinAmount}</h6>
       <h6>{errorincomp}</h6>
@@ -137,49 +137,77 @@ export function Form() {
         <h2>Compound interst calculator</h2>
         <h6>{errorinAmount}</h6>
 
-        <TextField id="outlined-basic" label="amount" variant="outlined"  onChange={(e) => onAmountChange(Number(e.target.value))} />
-
-
-        <br />
-        <br />
-
-
-        <TextField id="outlined-basic" label="interst" variant="outlined" placeholder="Interst" onChange={(e) => onchangeinterst(Number(e.target.value))} />
-
-
-        <br />
-        <br />
-
-
-        <TextField id="outlined-basic" label="compound-interst:" variant="outlined" onChange={(e) => onchangecomp(Number(e.target.value))} />
-
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            id="outlined-basic"
+            label="amount"
+            variant="outlined"
+            onChange={(e) => onAmountChange(Number(e.target.value))}
+            style={{ color: 'white', textAlign: 'center' }}
+          />
+        </div>
 
         <br />
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            id="outlined-basic"
+            label="interest"
+            variant="outlined"
+            placeholder="Interest"
+            onChange={(e) => onchangeinterst(Number(e.target.value))}
+            style={{ color: 'white', textAlign: 'center' }}
+          />
+        </div>
+
+        <br />
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <TextField
+            id="outlined-basic"
+            label="compound-interest:"
+            variant="outlined"
+            onChange={(e) => onchangecomp(Number(e.target.value))}
+            style={{ color: 'white', textAlign: 'center' }}
+          />
+        </div>
+
         <br />
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
-              <DatePicker label="Date On Which Amount given:" onChange={(date) => onchangedateout(date)} />
+              <DatePicker
+                label="Date On Which Amount Given:"
+                onChange={(date) => onchangedateout(date)}
+                style={{ color: 'white' }}
+              />
             </DemoContainer>
           </LocalizationProvider>
         </div>
 
         <br />
 
-
-        <div style={{ display: 'flex', justifyContent: 'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
-              <DatePicker label="Date On Which Amount given:" onChange={(date) => onchangedatein(date)} />
+              <DatePicker
+                label="Date On Which Amount Given:"
+                onChange={(date) => onchangedatein(date)}
+                style={{ color: 'white' }}
+              />
             </DemoContainer>
           </LocalizationProvider>
         </div>
 
-        <br></br>
-        <br></br>
-        <Button variant="contained" onClick={() => { calculation() }} >Submit</Button>
-        
+        <br />
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button variant="contained" onClick={() => calculation()} style={{ color: 'white' }}>
+            Submit
+          </Button>
+        </div>
+
       </form>
       <div className="h3">
         <h3>your total Amount is {totalamount}</h3>

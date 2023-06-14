@@ -33,4 +33,48 @@
    */
   
 
+  /* Form.css */
+
+.background {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    font-family: 'Roboto', sans-serif; 
+    color: black;
+  }
+  
+  .Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(53, 157, 201, 0.5); 
+    padding: 30px;
+    border-radius: 100px;
+   
+  }
+  
+  .Form h2 {
+    margin-bottom: 20px;
+    color:black; 
+  }
+  
+  .Form h6 {
+    color: #f44336; 
+  }
+  
+  .Form .MuiTextField-root {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .h3 {
+    margin-top: 20px;
+  }
+  
+  .MuiButtonBase-root {
+    margin-top: 20px;
+    width: 100%;
+  }
   
