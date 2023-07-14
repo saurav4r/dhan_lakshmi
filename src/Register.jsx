@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const Register = (props) => {
+export const Register = () => {
+    const navigate = useNavigate();
     const { email, setEmail } = useState('');
     const { pass, setPass } = useState('');
     const { name, setName } = useState('');
@@ -21,9 +23,17 @@ export const Register = (props) => {
                 <input value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                 <label htmlFor="password">Password</label>
                 <input value={pass} type="password" placeholder="enter your password" id="email" name="email" />
-                <button type="submit">login</button>
+                <button style={{}}
+                    type="submit"
+                    onClick={() => {
+                        navigate("/Login")
+                    }} >
+                    login
+                </button>
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('login')}>already have a account? login here.</button>
+            <button className="link-btn" onClick={() => {
+                navigate("/Login")
+            }}>already have a account? login here.</button>
         </div>
     )
 }

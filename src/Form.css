@@ -41,17 +41,18 @@
     background-size: cover;
     padding: 50px;
     font-family: 'Roboto', sans-serif; 
-    color: black;
+    color:white;
   }
   
   .Form {
     display: flex;
+    width: 500px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(53, 157, 201, 0.5); 
+    background-color:white; 
     padding: 30px;
-    border-radius: 100px;
+    border-radius: 30px;
    
   }
   

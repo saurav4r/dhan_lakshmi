@@ -6,9 +6,19 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import TextField from '@mui/material/TextField';
 import './Form.css';
+import { Box } from '@mui/system';
+// import { makeStyles } from '@mui/styles';
+
+// const useStyles = makeStyles({
+//   datePicker: {
+//     width: '300px !important',
+//   },
+// });
+
 
 export function Form() {
   // const [value, setValue] = useState(null);
+  // const classes = useStyles();
   var [amount, setAmount] = useState(0);
   const [interst, setInterst] = useState(0);
   const [comp, setComp] = useState(0);
@@ -143,7 +153,7 @@ export function Form() {
             label="amount"
             variant="outlined"
             onChange={(e) => onAmountChange(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center' }}
+            style={{ color: 'white', textAlign: 'center', width: '300px' }}
           />
         </div>
 
@@ -156,7 +166,7 @@ export function Form() {
             variant="outlined"
             placeholder="Interest"
             onChange={(e) => onchangeinterst(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center' }}
+            style={{ color: 'white', textAlign: 'center', width: '300px' }}
           />
         </div>
 
@@ -168,7 +178,7 @@ export function Form() {
             label="compound-interest:"
             variant="outlined"
             onChange={(e) => onchangecomp(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center' }}
+            style={{ color: 'white', textAlign: 'center', width: '300px' }}
           />
         </div>
 
@@ -180,7 +190,7 @@ export function Form() {
               <DatePicker
                 label="Date On Which Amount Given:"
                 onChange={(date) => onchangedateout(date)}
-                style={{ color: 'white' }}
+                style={{ color: 'white', width: '300px' }}
               />
             </DemoContainer>
           </LocalizationProvider>
@@ -188,17 +198,46 @@ export function Form() {
 
         <br />
 
+        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <DatePicker
+                label="Date On Which Amount Given:"
+                onChange={(date) => onchangedatein(date)}
+                renderInput={(params) => <TextField {...params} sx={{ width: '300px'}} />}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
+        </div> */}
+
+        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <DatePicker
+                label="Date On Which Amount Given:"
+                onChange={(date) => onchangedatein(date)}
+                renderInput={(params) => <TextField {...params} className={classes.datePicker} />}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
+        </div> */}
+
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
               <DatePicker
                 label="Date On Which Amount Given:"
                 onChange={(date) => onchangedatein(date)}
-                style={{ color: 'white' }}
+                renderInput={(params) =>
+                  <Box width={300}>
+                    <TextField {...params} />
+                  </Box>
+                }
               />
             </DemoContainer>
           </LocalizationProvider>
         </div>
+
 
         <br />
 
