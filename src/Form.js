@@ -15,7 +15,7 @@ import { Box } from '@mui/system';
 //   },
 // });
 
-
+ 
 export function Form() {
   // const [value, setValue] = useState(null);
   // const classes = useStyles();
@@ -149,6 +149,7 @@ export function Form() {
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
+            size="small"
             id="outlined-basic"
             label="amount"
             variant="outlined"
@@ -161,6 +162,7 @@ export function Form() {
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
+            size="small"
             id="outlined-basic"
             label="interest"
             variant="outlined"
@@ -174,6 +176,8 @@ export function Form() {
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
+          
+            size="small"
             id="outlined-basic"
             label="compound-interest:"
             variant="outlined"
@@ -182,52 +186,32 @@ export function Form() {
           />
         </div>
 
-        <br />
+        
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
               <DatePicker
-                label="Date On Which Amount Given:"
+                size="small"
+                label="Date On Amount taken:"
                 onChange={(date) => onchangedateout(date)}
-                style={{ color: 'white', width: '300px' }}
+                slotProps={{ textField: { size: 'small' } }}
+                
               />
             </DemoContainer>
           </LocalizationProvider>
         </div>
 
-        <br />
+        
 
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
-              <DatePicker
-                label="Date On Which Amount Given:"
-                onChange={(date) => onchangedatein(date)}
-                renderInput={(params) => <TextField {...params} sx={{ width: '300px'}} />}
-              />
-            </DemoContainer>
-          </LocalizationProvider>
-        </div> */}
-
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
-              <DatePicker
-                label="Date On Which Amount Given:"
-                onChange={(date) => onchangedatein(date)}
-                renderInput={(params) => <TextField {...params} className={classes.datePicker} />}
-              />
-            </DemoContainer>
-          </LocalizationProvider>
-        </div> */}
-
+        
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
               <DatePicker
-                label="Date On Which Amount Given:"
+                label="Date On Amount Given:"
                 onChange={(date) => onchangedatein(date)}
+                slotProps={{ textField: { size: 'small' } }}
                 renderInput={(params) =>
                   <Box width={300}>
                     <TextField {...params} />

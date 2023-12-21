@@ -4,7 +4,7 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color: white;
+  
   /* background-image: linear-gradient(45deg,#fcfced,#d190d1,#459ee7); */
   background-color: rgb(28, 27, 27);
 }
@@ -16,9 +16,9 @@
 }
 .auth-form-container{
   padding: 5rem;
-  border: 1px solid rgb(46, 40, 40);
+  border: 1px solid black;
   border-radius: 10px;
-  background-color: rgb(46, 40, 40);
+  background-color:white;
 }
 
 label {
@@ -29,7 +29,7 @@ label {
 input{
   margin: 0.5rem 0;
   padding: 1rem;
-  border: none;
+  border:1px solid black ;
   border-radius: 10px;
 }
 
@@ -44,6 +44,6 @@ button{
 
 .link-btn{
   background: none;
-  color: white;
+  color: black;
   text-decoration: underline;
 }

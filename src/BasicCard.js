@@ -14,6 +14,8 @@ function BasicCard() {
   return (
     <Card sx={{ minWidth: 500, minHeight: 300 }}>
       <CardContent>
+        <br></br>
+        <br></br>
         <Typography sx={{ fontSize: 35 }} variant="h2" color="black" gutterBottom>
           Welcome To Dhan lakshimi
         </Typography>
@@ -41,7 +43,9 @@ function BasicCard() {
         }}>
           SignIn
         </Button>
-
+         <br></br>
+         <br></br>
+         <br></br>
       </CardContent>
 
     </Card>
