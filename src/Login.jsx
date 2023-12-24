@@ -26,6 +26,8 @@ export const Login = () => {
   
       const data = await response.json();
       console.log(data);
+      localStorage.setItem("token",data.token);
+      console.log(data.token);
   
       if (data.message === "login-successful") {
         navigate("/form");

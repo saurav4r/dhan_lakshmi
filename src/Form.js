@@ -7,26 +7,16 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import TextField from '@mui/material/TextField';
 import './Form.css';
 import { Box } from '@mui/system';
-// import { makeStyles } from '@mui/styles';
 
-// const useStyles = makeStyles({
-//   datePicker: {
-//     width: '300px !important',
-//   },
-// });
-
- 
 export function Form() {
-  // const [value, setValue] = useState(null);
-  // const classes = useStyles();
+ 
   var [amount, setAmount] = useState(0);
-  const [interst, setInterst] = useState(0);
-  const [comp, setComp] = useState(0);
-  const [dateout, setDateout] = useState(0);
-  const [datein, setDatein] = useState(0);
+  var [interst, setInterst] = useState(0);
+  var [comp, setComp] = useState(0);
+  var [dateout, setDateout] = useState(0);
+  var [datein, setDatein] = useState(0);
   const [errorinAmount, setErrorinAmount] = useState("");
   const [errorincomp, setErrorincomp] = useState("");
-  // const [amountonyear,setAmountonyear]=useState(0);
   const [totalamount, setTotalamount] = useState(0);
   const [year, setYear] = useState(0);
   const [month, setMonth] = useState(0);
@@ -38,14 +28,8 @@ export function Form() {
     }
   }, [dateout, datein])
 
-  // useEffect([
-
-  // ],amount)
-
-
   function getFormData(e) {
     e.preventDefault()
-    // calculateDateDifference(dateout, datein);
 
     console.log(amount, interst, comp, dateout, datein, year, month, day);
 
@@ -135,11 +119,45 @@ export function Form() {
     // console.log(amountonyear+amount2+amount3)
   }
 
+  function backend(amount, interst, comp, dateout, datein) {
+     
+    function callback2(data){
+      console.log(amount,interst,comp,dateout,datein,)
+      console.log(data);
+    }
+
+    function callback1(res){
+      res.json().then(callback2).catch(error => console.error('Error parsing JSON:', error));
+    }
+
+    fetch('http://localhost:3003/from', {
+      method: 'POST',
+      body: JSON.stringify({
+        iamount:amount,
+        iinterest:interst,
+        icompound:comp,
+        itaken:dateout,
+        igiven:datein,
+        itotal:totalamount
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization":"Bearer "+localStorage.getItem("token")
+      } 
+    })
+    .then(callback1)
+    .catch(error => console.error('Network error:', error));
+}
+
+
 
 
   return (
-
+    
+  <div>
+    
     <div className="background">
+    
       <h6>{errorinAmount}</h6>
       <h6>{errorincomp}</h6>
       <form onSubmit={getFormData} className="Form" >
@@ -226,7 +244,7 @@ export function Form() {
         <br />
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="contained" onClick={() => calculation()} style={{ color: 'white' }}>
+          <Button variant="contained" onClick={() => {calculation();backend(amount, interst, comp, dateout, datein)}} style={{ color: 'white' }}>
             Submit
           </Button>
         </div>
@@ -237,5 +255,106 @@ export function Form() {
       </div>
 
     </div>
+    <div className="background">
+    
+    <h6>{errorinAmount}</h6>
+    <h6>{errorincomp}</h6>
+    <form onSubmit={getFormData} className="Form" >
+
+      <h2>Compound interst calculator</h2>
+      <h6>{errorinAmount}</h6>
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="amount"
+          variant="outlined"
+          onChange={(e) => onAmountChange(Number(e.target.value))}
+          style={{ color: 'white', textAlign: 'center', width: '300px' }}
+        />
+      </div>
+
+      <br />
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="interest"
+          variant="outlined"
+          placeholder="Interest"
+          onChange={(e) => onchangeinterst(Number(e.target.value))}
+          style={{ color: 'white', textAlign: 'center', width: '300px' }}
+        />
+      </div>
+
+      <br />
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <TextField
+        
+          size="small"
+          id="outlined-basic"
+          label="compound-interest:"
+          variant="outlined"
+          onChange={(e) => onchangecomp(Number(e.target.value))}
+          style={{ color: 'white', textAlign: 'center', width: '300px' }}
+        />
+      </div>
+
+      
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={['DatePicker']}>
+            <DatePicker
+              size="small"
+              label="Date On Amount taken:"
+              onChange={(date) => onchangedateout(date)}
+              slotProps={{ textField: { size: 'small' } }}
+              
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+      </div>
+
+      
+
+      
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={['DatePicker']}>
+            <DatePicker
+              label="Date On Amount Given:"
+              onChange={(date) => onchangedatein(date)}
+              slotProps={{ textField: { size: 'small' } }}
+              renderInput={(params) =>
+                <Box width={300}>
+                  <TextField {...params} />
+                </Box>
+              }
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+      </div>
+
+
+      <br />
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button variant="contained" onClick={() => {calculation();backend(amount, interst, comp, dateout, datein)}} style={{ color: 'white' }}>
+          Submit
+        </Button>
+      </div>
+
+    </form>
+    <div className="h3">
+      <h3>your total Amount is {totalamount}</h3>
+    </div>
+
+  </div>
+</div>
+    
   )
 }
