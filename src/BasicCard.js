@@ -10,9 +10,13 @@ import { useNavigate } from 'react-router-dom';
 function BasicCard() {
 
   const navigate = useNavigate();
+ 
 
   return (
-    <Card sx={{ minWidth: 500, minHeight: 300 }}>
+    <div className='card'>
+      <Card sx={{ minWidth: 500, 
+        minHeight: 300,
+        }}>
       <CardContent>
         <br></br>
         <br></br>
@@ -49,6 +53,7 @@ function BasicCard() {
       </CardContent>
 
     </Card>
+    </div>
   );
 }
 

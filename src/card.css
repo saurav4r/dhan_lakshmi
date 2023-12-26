@@ -1,0 +1,6 @@
+.card{
+    background-image: url('comp-1.jpg');
+    background-size: cover;
+    width: 30vw;
+    height: 50vh;
+}

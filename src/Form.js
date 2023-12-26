@@ -7,7 +7,10 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import TextField from '@mui/material/TextField';
 import './Form.css';
 import { Box } from '@mui/system';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 
+ 
 export function Form() {
  
   var [amount, setAmount] = useState(0);
@@ -154,107 +157,21 @@ export function Form() {
 
   return (
     
-  <div>
     
-    <div className="background">
-    
-      <h6>{errorinAmount}</h6>
-      <h6>{errorincomp}</h6>
-      <form onSubmit={getFormData} className="Form" >
+    <div>
+      <AppBar position="static"  sx={{ backgroundColor: 'white', color: 'black',borderRadius:'5px' }}>
+        <Toolbar>
 
-        <h2>Compound interst calculator</h2>
-        <h6>{errorinAmount}</h6>
+          <h4>hello</h4>
+          <Box sx={{ flexGrow: 1 }}></Box>
+          <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}}>history</Button>
+         
+          <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}}>log-out</Button>
+         
+        </Toolbar>
+      </AppBar>
 
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <TextField
-            size="small"
-            id="outlined-basic"
-            label="amount"
-            variant="outlined"
-            onChange={(e) => onAmountChange(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center', width: '300px' }}
-          />
-        </div>
-
-        <br />
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <TextField
-            size="small"
-            id="outlined-basic"
-            label="interest"
-            variant="outlined"
-            placeholder="Interest"
-            onChange={(e) => onchangeinterst(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center', width: '300px' }}
-          />
-        </div>
-
-        <br />
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <TextField
-          
-            size="small"
-            id="outlined-basic"
-            label="compound-interest:"
-            variant="outlined"
-            onChange={(e) => onchangecomp(Number(e.target.value))}
-            style={{ color: 'white', textAlign: 'center', width: '300px' }}
-          />
-        </div>
-
-        
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
-              <DatePicker
-                size="small"
-                label="Date On Amount taken:"
-                onChange={(date) => onchangedateout(date)}
-                slotProps={{ textField: { size: 'small' } }}
-                
-              />
-            </DemoContainer>
-          </LocalizationProvider>
-        </div>
-
-        
-
-        
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
-              <DatePicker
-                label="Date On Amount Given:"
-                onChange={(date) => onchangedatein(date)}
-                slotProps={{ textField: { size: 'small' } }}
-                renderInput={(params) =>
-                  <Box width={300}>
-                    <TextField {...params} />
-                  </Box>
-                }
-              />
-            </DemoContainer>
-          </LocalizationProvider>
-        </div>
-
-
-        <br />
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="contained" onClick={() => {calculation();backend(amount, interst, comp, dateout, datein)}} style={{ color: 'white' }}>
-            Submit
-          </Button>
-        </div>
-
-      </form>
-      <div className="h3">
-        <h3>your total Amount is {totalamount}</h3>
-      </div>
-
-    </div>
+  
     <div className="background">
     
     <h6>{errorinAmount}</h6>
@@ -265,13 +182,14 @@ export function Form() {
       <h6>{errorinAmount}</h6>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
+        
         <TextField
           size="small"
           id="outlined-basic"
           label="amount"
           variant="outlined"
           onChange={(e) => onAmountChange(Number(e.target.value))}
-          style={{ color: 'white', textAlign: 'center', width: '300px' }}
+          style={{ color: 'black', textAlign: 'center', width: '300px' }}
         />
       </div>
 
@@ -343,7 +261,7 @@ export function Form() {
       <br />
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Button variant="contained" onClick={() => {calculation();backend(amount, interst, comp, dateout, datein)}} style={{ color: 'white' }}>
+        <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white', }} onClick={() => {calculation();backend(amount, interst, comp, dateout, datein)}}>
           Submit
         </Button>
       </div>
@@ -354,7 +272,6 @@ export function Form() {
     </div>
 
   </div>
-</div>
-    
+    </div>
   )
 }

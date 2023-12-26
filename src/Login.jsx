@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import './login.css';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -42,21 +43,23 @@ export const Login = () => {
   
 
   return (
-    <div className="auth-form-container">
+    <div className="login-back">
+      <div className="auth-form-container">
       <h2>Login</h2>
 
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input value={email1} type="email" placeholder="youremail@gmail.com" id="email" name="email" onChange={(e) => { setEmail1(e.target.value) }} />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" color="white">Password</label>
         <input value={pass1} type="password" placeholder="enter your password" id="password" name="password" onChange={(e) => { setPass1(e.target.value) }} />
         <button type="submit" onClick={CHEACK}>login</button>
         <h3>{message}</h3>
       </form>
-
+      
       <button className="link-btn" onClick={() => {
-        navigate("/Register");
+        navigate("/Register")
       }}>don't have an account? Register here.</button>
+    </div>
     </div>
   );
 }
