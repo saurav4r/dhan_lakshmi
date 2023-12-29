@@ -10,18 +10,17 @@ import { useNavigate } from 'react-router-dom';
 function BasicCard() {
 
   const navigate = useNavigate();
- 
-
+  
   return (
     <div className='card'>
       <Card sx={{ minWidth: 500, 
-        minHeight: 300,
+        minHeight: 300
         }}>
       <CardContent>
-        <br></br>
+        
         <br></br>
         <Typography sx={{ fontSize: 35 }} variant="h2" color="black" gutterBottom>
-          Welcome To Dhan lakshimi
+        Welcome To Dhan lakshimi
         </Typography>
         
         <br></br>
@@ -33,7 +32,7 @@ function BasicCard() {
         <br></br>
         <br></br>
 
-        <Button variant="contained" sx={{maxWidth:200,padding:2}} onClick={() => {
+        <Button variant="contained" sx={{maxWidth:200,minWidth:120,padding:2}} onClick={() => {
           navigate("/Register")
         }}>
           signup
@@ -42,7 +41,7 @@ function BasicCard() {
         <br></br>
         <br></br>
 
-        <Button variant="contained" sx={{maxWidth:200,padding:2}} onClick={() => {
+        <Button variant="contained" sx={{maxWidth:200,minWidth:120,padding:2}} onClick={() => {
           navigate("/Login")
         }}>
           SignIn

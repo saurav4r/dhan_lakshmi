@@ -44,11 +44,11 @@ export const Register = () => {
       <h2>Register</h2>
       <form className="register-form" onSubmit={handleSubmit}>
         <label>Full name</label>
-        <input value={name1} name="name" id="name" placeholder="full name" onChange={(e) => setName1(e.target.value)} />
+        <input id="name" placeholder="full name" onChange={(e) => setName1(e.target.value)} />
         <label htmlFor="email">Email</label>
-        <input value={email1} type="email" placeholder="youremail@gmail.com" id="email" name="email" onChange={(e) => setEmail1(e.target.value)} />
+        <input  type="email" placeholder="youremail@gmail.com" id="email" onChange={(e) => setEmail1(e.target.value)} />
         <label htmlFor="password">Password</label>
-        <input value={pass1} type="password" placeholder="enter your password" id="password" name="password" onChange={(e) => setPass1(e.target.value)} />
+        <input value={pass1} type="password" placeholder="enter your password" id="password" onChange={(e) => setPass1(e.target.value)} />
         <button type="submit" onClick={ASSIGNVALUE}>Register</button>
         <h5>{message}</h5>
       </form>

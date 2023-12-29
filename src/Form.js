@@ -9,7 +9,7 @@ import './Form.css';
 import { Box } from '@mui/system';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-
+import { useNavigate } from 'react-router-dom';
  
 export function Form() {
  
@@ -24,12 +24,36 @@ export function Form() {
   const [year, setYear] = useState(0);
   const [month, setMonth] = useState(0);
   const [day, setDay] = useState(0);
+  const [useremail,setUseremail]=useState("saurav");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (dateout && datein) {
       calculateDateDifference(dateout, datein);
     }
   }, [dateout, datein])
+
+  function appbar() {
+    function call2(data) {
+      setUseremail(data.username);
+      console.log(data);
+    }
+  
+    function call1(res) {
+      res.json().then(call2);
+    }
+  
+    fetch("http://localhost:3003/me", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      }
+    })
+    .then(call1)
+    .catch(error => console.error('Error:', error));
+  }
+  
 
   function getFormData(e) {
     e.preventDefault()
@@ -105,6 +129,8 @@ export function Form() {
 
   }
 
+  
+
   function calculation() {
     calculateDateDifference(dateout, datein);
     let amount1 = 0;
@@ -133,7 +159,7 @@ export function Form() {
       res.json().then(callback2).catch(error => console.error('Error parsing JSON:', error));
     }
 
-    fetch('http://localhost:3003/from', {
+    fetch('http://localhost:3003/from',{
       method: 'POST',
       body: JSON.stringify({
         iamount:amount,
@@ -159,18 +185,18 @@ export function Form() {
     
     
     <div>
+     {appbar()}
       <AppBar position="static"  sx={{ backgroundColor: 'white', color: 'black',borderRadius:'5px' }}>
         <Toolbar>
-
-          <h4>hello</h4>
           <Box sx={{ flexGrow: 1 }}></Box>
-          <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}}>history</Button>
-         
-          <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}}>log-out</Button>
+          
+          {/* <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}}>history</Button> */}
+          <h6>{useremail}</h6>
+          <Button variant="contained"  sx={{ backgroundColor: 'blue', color: 'white',mx:0.5}} onClick={()=>{localStorage.setItem("token"," "); navigate('/')}} >log-out</Button>
          
         </Toolbar>
       </AppBar>
-
+      
   
     <div className="background">
     
