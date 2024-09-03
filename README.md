@@ -1,6 +1,5 @@
 for banckend code:---  https://github.com/saurav4r/backend_of_dhan_lakshmi
 
-Here's a README file for your GitHub project based on the details and images you provided:
 
 
 # Compound Interest Calculator
