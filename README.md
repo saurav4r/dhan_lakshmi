@@ -1,5 +1,5 @@
-for banckend code:---  https://github.com/saurav4r/backend_of_dhan_lakshmi
-
+For Frontend Code:- https://github.com/saurav4r/dhan_lakshmi/tree/master
+For Backend Code:- https://github.com/saurav4r/backend_of_dhan_lakshmi
 
 
 # Compound Interest Calculator
