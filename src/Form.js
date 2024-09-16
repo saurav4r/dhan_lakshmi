@@ -44,7 +44,7 @@ export function Form() {
     }
 
     fetch(
-      "https://backend-of-dhan-lakshmi-f7rga455d-sauravs-projects-e1caf8bf.vercel.app/me",
+      "https://backend-of-dhan-lakshmi-git-main-sauravs-projects-e1caf8bf.vercel.app/me",
       {
         method: "GET",
         headers: {
@@ -147,7 +147,7 @@ export function Form() {
     }
 
     fetch(
-      "https://backend-of-dhan-lakshmi-f7rga455d-sauravs-projects-e1caf8bf.vercel.app/from",
+      "https://backend-of-dhan-lakshmi-git-main-sauravs-projects-e1caf8bf.vercel.app/from",
       {
         method: "POST",
         body: JSON.stringify({
