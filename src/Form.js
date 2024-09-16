@@ -43,15 +43,12 @@ export function Form() {
       res.json().then(call2)
     }
 
-    fetch(
-      "https://backend-of-dhan-lakshmi-git-main-sauravs-projects-e1caf8bf.vercel.app/me",
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    )
+    fetch("https://backend-of-dhan-lakshmi.vercel.app/me", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
       .then(call1)
       .catch((error) => console.error("Error:", error))
   }
@@ -146,24 +143,21 @@ export function Form() {
         .catch((error) => console.error("Error parsing JSON:", error))
     }
 
-    fetch(
-      "https://backend-of-dhan-lakshmi-git-main-sauravs-projects-e1caf8bf.vercel.app/from",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          iamount: amount,
-          iinterest: interst,
-          icompound: comp,
-          itaken: dateout,
-          igiven: datein,
-          itotal: totalamount,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    )
+    fetch("https://backend-of-dhan-lakshmi.vercel.app/from", {
+      method: "POST",
+      body: JSON.stringify({
+        iamount: amount,
+        iinterest: interst,
+        icompound: comp,
+        itaken: dateout,
+        igiven: datein,
+        itotal: totalamount,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
       .then(callback1)
       .catch((error) => console.error("Network error:", error))
   }

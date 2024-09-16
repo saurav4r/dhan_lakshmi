@@ -19,7 +19,7 @@ export const Register = () => {
   async function ASSIGNVALUE() {
     try {
       const response = await fetch(
-        "https://backend-of-dhan-lakshmi-git-main-sauravs-projects-e1caf8bf.vercel.app/register",
+        "https://backend-of-dhan-lakshmi.vercel.app/register",
         {
           method: "POST",
           headers: {
