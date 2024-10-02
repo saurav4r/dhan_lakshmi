@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+For Frontend Code:- https://github.com/saurav4r/dhan_lakshmi/tree/master
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+For Backend Code:- https://github.com/saurav4r/backend_of_dhan_lakshmi
 
-In the project directory, you can run:
 
-### `npm start`
+# Compound Interest Calculator
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A specialized web application designed to help small businesses calculate both simple and compound interest efficiently.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description
 
-### `npm test`
+This project is a web-based calculator specifically developed to help small businesses compute simple and compound interest. The application is built with a focus on ease of use, efficiency, and seamless user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- Calculate Simple Interest.
+- Calculate Compound Interest.
+- JWT Authentication for secure access.
+- Responsive design ensuring compatibility across devices.
+- User-friendly interface designed with small business needs in mind.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend**: React.js, HTML5, CSS3
+- **Backend**: Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+### Compound Interest Calculator Interface
+![image](https://github.com/user-attachments/assets/bc8c0fe3-1b5d-4ed5-8445-9ad372d97319)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Login Screen
+![image](https://github.com/user-attachments/assets/8d54d36b-6e5d-44dc-9b8a-a92f0099bc19)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Registration Screen
+![image](https://github.com/user-attachments/assets/2c8dcb0e-0ee5-47d9-8b17-f58e7a9b1e31)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### MongoDB Data Overview (Interest Calculations)
+![image](https://github.com/user-attachments/assets/fbfda660-0d44-4a1b-841b-59c093278277)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### MongoDB Data Overview (User Information)
+![image](https://github.com/user-attachments/assets/615f143c-c2b5-4284-a421-dcd1db3564fd)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/saurav4r/dhan_lakshmi.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd compound-interest-calculator
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Set up environment variables (e.g., MongoDB connection, JWT secret) in a `.env` file.
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Start the server:
+   ```bash
+   npm start
+   ```
+2. Open your browser and navigate to `http://localhost:3000` to use the application.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
