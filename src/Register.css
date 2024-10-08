@@ -1,4 +1,4 @@
-/* Login.css */
+/* Register.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
@@ -15,20 +15,21 @@ body, html {
   background: #f0f2f5;
 }
 
-.login-container {
+.register-container {
   display: flex;
   min-height: 100vh;
   position: relative;
 }
 
-.login-background {
+.register-background {
   flex: 1;
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
   position: relative;
-  display: none; /* Hidden on mobile, visible on larger screens */
+  display: none; 
 }
 
-.login-overlay {
+
+.register-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +38,7 @@ body, html {
   background: rgba(255, 255, 255, 0.6);
 }
 
-.login-illustration {
+.register-illustration {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -48,7 +49,7 @@ body, html {
   background-size: contain;
 }
 
-.login-box {
+.register-box {
   background: #ffffff;
   padding: 40px 30px;
   border-radius: 15px;
@@ -61,7 +62,7 @@ body, html {
   animation: slideIn 0.7s ease-out;
 }
 
-.login-title {
+.register-title {
   text-align: center;
   margin-bottom: 25px;
   color: #333333;
@@ -70,7 +71,7 @@ body, html {
   position: relative;
 }
 
-.login-title::after {
+.register-title::after {
   content: '';
   display: block;
   width: 60px;
@@ -80,7 +81,7 @@ body, html {
   border-radius: 2px;
 }
 
-.login-form .input-group {
+.register-form .input-group {
   position: relative;
   margin-bottom: 20px;
 }
@@ -94,7 +95,7 @@ body, html {
   font-size: 18px;
 }
 
-.login-form input {
+.register-form input {
   width: 100%;
   padding: 12px 15px 12px 45px;
   border: 1px solid #dddddd;
@@ -104,7 +105,7 @@ body, html {
   background: #f9f9f9;
 }
 
-.login-form input:focus {
+.register-form input:focus {
   border-color: #ff6a00;
   outline: none;
   box-shadow: 0 0 8px rgba(255, 106, 0, 0.3);
@@ -122,14 +123,14 @@ body, html {
   user-select: none;
 }
 
-.error-message {
+.message {
   margin-bottom: 15px;
   color: #e74c3c;
   font-size: 14px;
   text-align: center;
 }
 
-.login-button {
+.register-button {
   width: 100%;
   padding: 14px;
   background: linear-gradient(135deg, #ff6a00, #ee0979);
@@ -142,12 +143,17 @@ body, html {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.login-button:hover {
+.register-button:hover {
   background: linear-gradient(135deg, #ee0979, #ff6a00);
   transform: translateY(-2px);
 }
 
-.register-link {
+.register-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.login-link {
   margin-top: 20px;
   text-align: center;
   font-size: 16px;
@@ -170,13 +176,13 @@ body, html {
 }
 
 @media (min-width: 768px) {
-  .login-background {
+  .register-background {
     display: block;
   }
 }
 
 @media (max-width: 767px) {
-  .login-box {
+  .register-box {
     border-radius: 0;
     box-shadow: none;
     border-top-left-radius: 15px;
@@ -187,7 +193,7 @@ body, html {
     right: 0;
   }
 
-  .login-illustration {
+  .register-illustration {
     display: none;
   }
 }

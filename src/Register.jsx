@@ -1,79 +1,117 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Register.css"; // Ensure this CSS file is correctly imported
+import { FaUser, FaEnvelope, FaLock } from "react-icons/fa"; // Importing icons from react-icons
 
 export const Register = () => {
-  const navigate = useNavigate()
-  const [email1, setEmail1] = useState("")
-  const [pass1, setPass1] = useState("")
-  const [name1, setName1] = useState("")
-  const [message, setMessage] = useState("")
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [isLoading, setIsLoading] = useState(false); // State for loading indicator
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage(""); // Reset message on new submit
+    setIsLoading(true); // Start loading
 
-  // function NEVIGATE() {
-  //   navigate('/Login');
-  // }
-
-  async function ASSIGNVALUE() {
     try {
-      const response = await fetch(
-        "https://backend-of-dhan-lakshmi.vercel.app/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: name1,
-            password: pass1,
-            email: email1,
-          }),
-        }
-      )
+      const response = await fetch("https://backend-of-dhan-lakshmi.vercel.app/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      });
 
-      const data = await response.json()
-      console.log(data)
-      setMessage(data.message + "  Click On login here button")
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+        setMessage(`${data.message} Click on the login here button.`);
+      } else {
+        setMessage(data.message || "Registration failed. Please try again.");
+      }
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      setMessage("An error occurred during registration. Please try again later.");
+    } finally {
+      setIsLoading(false); // Stop loading
     }
-  }
+  };
 
   return (
-    <div className="auth-form-container">
-      <h2>Register</h2>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label>Full name</label>
-        <input
-          id="name"
-          placeholder="full name"
-          onChange={(e) => setName1(e.target.value)}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          placeholder="youremail@gmail.com"
-          id="email"
-          onChange={(e) => setEmail1(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          value={pass1}
-          type="password"
-          placeholder="enter your password"
-          id="password"
-          onChange={(e) => setPass1(e.target.value)}
-        />
-        <button type="submit" onClick={ASSIGNVALUE}>
-          Register
-        </button>
-        <h5>{message}</h5>
-      </form>
-      <button className="link-btn" onClick={() => navigate("/Login")}>
-        Already have an account? Login here.
-      </button>
+    <div className="register-container">
+      <div className="register-box">
+        <h2 className="register-title">Create Account</h2>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <FaUser className="input-icon" />
+            <input
+              type="text"
+              id="username"
+              placeholder="Full Name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              aria-required="true"
+              minLength={2}
+              maxLength={50}
+            />
+          </div>
+          <div className="input-group">
+            <FaEnvelope className="input-icon" />
+            <input
+              type="email"
+              id="email"
+              placeholder="youremail@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-required="true"
+            />
+          </div>
+          <div className="input-group">
+            <FaLock className="input-icon" />
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              aria-required="true"
+              minLength={6}
+            />
+            <span
+              className="password-toggle"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </span>
+          </div>
+          {message && <div className="message">{message}</div>}
+          <button type="submit" className="register-button" disabled={isLoading}>
+            {isLoading ? "Registering..." : "Register"}
+          </button>
+        </form>
+        <div className="login-link">
+          Already have an account?{" "}
+          <button
+            type="button"
+            onClick={() => navigate("/Login")}
+            className="link-button"
+          >
+            Login here.
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};

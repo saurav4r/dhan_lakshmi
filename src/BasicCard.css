@@ -1,0 +1,123 @@
+/* BasicCard.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  padding: 20px;
+}
+
+.card-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.welcome-card {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.welcome-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.illustration {
+  width: 150px;
+  height: auto;
+}
+
+.welcome-title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.welcome-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.signup-button {
+  width: 100%;
+  max-width: 220px;
+  padding: 12px 0;
+  margin: 0 auto 20px auto;
+  border-radius: 50px;
+  text-transform: none;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #2980b9;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-button:hover {
+  background-color: #3498db;
+  transform: translateY(-3px);
+}
+
+.signin-button {
+  width: 100%;
+  max-width: 220px;
+  padding: 12px 0;
+  margin: 0 auto;
+  border-radius: 50px;
+  text-transform: none;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #2980b9;
+  color: #2980b9;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.signin-button:hover {
+  background-color: #2980b9;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 28px;
+  }
+
+  .welcome-subtitle {
+    font-size: 16px;
+  }
+
+  .signup-button,
+  .signin-button {
+    max-width: 180px;
+    font-size: 14px;
+  }
+
+  .illustration {
+    width: 120px;
+  }
+}
