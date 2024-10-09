@@ -1,5 +1,4 @@
-/* Login.css */
-
+/* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * {
@@ -17,57 +16,30 @@ body, html {
 
 .login-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  position: relative;
-}
-
-.login-background {
-  flex: 1;
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-  position: relative;
-  display: none; /* Hidden on mobile, visible on larger screens */
-}
-
-.login-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.login-illustration {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  /* Add your SVG or image here */
-  width: 300px;
-  height: 300px;
-  background: url('https://via.placeholder.com/300') no-repeat center center;
-  background-size: contain;
+  padding: 20px;
+  width: 100%;
 }
 
 .login-box {
   background: #ffffff;
-  padding: 40px 30px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 450px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
   animation: slideIn 0.7s ease-out;
+  overflow: hidden;
 }
 
 .login-title {
   text-align: center;
   margin-bottom: 25px;
   color: #333333;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
-  position: relative;
 }
 
 .login-title::after {
@@ -80,9 +52,10 @@ body, html {
   border-radius: 2px;
 }
 
-.login-form .input-group {
+.input-group {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .input-group .input-icon {
@@ -96,7 +69,7 @@ body, html {
 
 .login-form input {
   width: 100%;
-  padding: 12px 15px 12px 45px;
+  padding: 12px 45px;
   border: 1px solid #dddddd;
   border-radius: 10px;
   font-size: 16px;
@@ -119,7 +92,6 @@ body, html {
   font-size: 14px;
   color: #ff6a00;
   cursor: pointer;
-  user-select: none;
 }
 
 .error-message {
@@ -131,12 +103,12 @@ body, html {
 
 .login-button {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   background: linear-gradient(135deg, #ff6a00, #ee0979);
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -148,9 +120,9 @@ body, html {
 }
 
 .register-link {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #555555;
 }
 
@@ -160,7 +132,7 @@ body, html {
   color: #ff6a00;
   cursor: pointer;
   text-decoration: underline;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0;
   transition: color 0.3s ease;
 }
@@ -169,26 +141,69 @@ body, html {
   color: #ee0979;
 }
 
-@media (min-width: 768px) {
-  .login-background {
-    display: block;
+/* Media Queries for Responsiveness */
+@media (max-width: 767px) {
+  .login-box {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: none;
+    max-width: 90%;
+  }
+
+  .login-title {
+    font-size: 20px;
+  }
+
+  .login-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .input-group .input-icon {
+    font-size: 16px;
+  }
+
+  .login-form input {
+    padding: 10px 40px;
+    font-size: 14px;
+  }
+
+  .register-link {
+    font-size: 12px;
+  }
+
+  .password-toggle {
+    font-size: 12px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .login-box {
-    border-radius: 0;
-    box-shadow: none;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 95%;
   }
 
-  .login-illustration {
-    display: none;
+  .login-title {
+    font-size: 18px;
+  }
+
+  .login-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .login-form input {
+    padding: 8px 35px;
+    font-size: 14px;
+  }
+
+  .register-link {
+    font-size: 12px;
+  }
+
+  .password-toggle {
+    font-size: 12px;
   }
 }
 

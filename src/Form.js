@@ -278,6 +278,14 @@ export function Form() {
           </div>
         </form>
         <div className="h3">
+          <br></br>
+          <br></br>
+          <h3>Your principal amount is {amount}</h3>
+          <h3> Interest rate {interst}%</h3>
+          <h3>Coumpounding at {comp}</h3>
+          <h3>Difference in days {year} year-{month} month-{day} days</h3>
+          <h3>----------------------------------------------------------</h3>
+
           <h3>your total Amount is {totalamount}</h3>
         </div>
       </div>
