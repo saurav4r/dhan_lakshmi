@@ -123,7 +123,7 @@ export function Form() {
     }
     // console.log(amount+amount1);
     let amountonyear = amount + amount1
-    let amount2 = (amountonyear * interst * (month / 12)) / 100
+    let amount2 = (amountonyear * interst * (month)) / 100
     let amount3 = (amountonyear * interst * (day / 30)) / 100
     setTotalamount(amountonyear + amount2 + amount3)
 
