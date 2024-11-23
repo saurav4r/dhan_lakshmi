@@ -1,39 +1,133 @@
-  
+/* Importing a modern font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+}
+
+/* App Bar Styles */
+.app-bar {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+}
+
+.app-title {
+  font-weight: 500;
+}
+
+.user-email {
+  margin-right: 16px;
+}
+
+/* Background */
 .background {
-    color:white;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Form Styles */
+.Form {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.Form h2 {
+  margin-bottom: 24px;
+  color: #1e3a8a;
+  text-align: center;
+}
+
+.Form .MuiTextField-root {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.Form .MuiFormControl-root {
+  width: 100%;
+}
+
+.Form .MuiButton-root {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.Form .MuiButton-root:hover {
+  background-color: #1a237e;
+}
+
+.Form .error-message {
+  color: #e53935;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Results Section */
+.results {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.results h3 {
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.results p {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.results hr {
+  margin: 20px 0;
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .Form, .results {
+    padding: 20px 15px;
+    margin-top: 20px;
   }
-  
-  .Form {
-    
-   
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('comp-4.jpg');
-    background-size: cover;
-    width: 40vw;
-    height: 70vh;
-   
-    padding: 20px;
-    border-radius: 8px;
-   
+
+  .Form h2, .results h3 {
+    font-size: 22px;
   }
-  
-  .Form h2 {
-    margin-bottom: 20px;
-    color:black; 
+
+  .Form .MuiButton-root {
+    font-size: 14px;
+    padding: 10px;
   }
-  
-  .Form h6 {
-    color: #f44336; 
+
+  .results p {
+    font-size: 14px;
   }
-  
-  .Form .MuiTextField-root {
-    margin-bottom: 20px;
-    width: 100%;
-  }
- 
-  
- 
-  
+}
